@@ -40,11 +40,18 @@
 (require-package 'swift-mode)
 (add-hook 'swift-mode-hook #'lsp-deferred)
 
+(require-package 'lsp-treemacs)
+(lsp-treemacs-sync-mode 1)
+(setq treemacs-width 25)
+
+(require-package 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(require-package 'yasnippet)
+(yas-minor-mode 1)
+
 (require-package 'lsp-ui)
 (require-package 'flycheck)
-(require-package 'lsp-treemacs)
 (require-package 'helm-lsp)
 (require-package 'lsp-ivy)
-(require-package 'company)
-(require-package 'yasnippet)
 (require-package 'multiple-cursors)
