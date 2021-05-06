@@ -48,7 +48,7 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (require-package 'yasnippet)
-(yas-minor-mode 1)
+(yas-global-mode 1)
 
 (require-package 'lsp-ui)
 (require-package 'flycheck)
