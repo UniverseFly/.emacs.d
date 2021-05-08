@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(multiple-cursors yasnippet lsp-ivy helm-lsp swift-mode lsp-sourcekit company lsp-python-ms lsp-ui lsp-treemacs flycheck)))
+   '(yasnippet swift-mode lsp-ui lsp-treemacs lsp-sourcekit lsp-pyright lsp-ivy helm-lsp flycheck company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -25,11 +25,15 @@
     (package-install package))
   (require package))
 
+(load-theme 'wombat t)
+(menu-bar-mode 0)
+
 (require-package 'lsp-mode)
 (add-hook 'c++-mode-hook #'lsp-deferred)
 
-(require-package 'lsp-python-ms)
-(setq lsp-python-ms-auto-install-server t)
+(require-package 'lsp-pyright)
+(setq-default lsp-pyright-python-executable-cmd "python3")
+(add-to-list 'lsp-disabled-clients 'pyls)
 (add-hook 'python-mode-hook #'lsp-deferred)
 
 (require-package 'lsp-sourcekit)
@@ -42,7 +46,7 @@
 
 (require-package 'lsp-treemacs)
 (lsp-treemacs-sync-mode 1)
-(setq treemacs-width 25)
+(setq-default treemacs-width 25)
 
 (require-package 'company)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -54,4 +58,3 @@
 (require-package 'flycheck)
 (require-package 'helm-lsp)
 (require-package 'lsp-ivy)
-(require-package 'multiple-cursors)
