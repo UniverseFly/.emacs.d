@@ -17,11 +17,12 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+;; Code should be implemented for auto-upgrading packages
+;; (package-refresh-contents)
 
 ;; download and install `package` if not downloaded yet
 (defun require-package (package)
   (unless (package-installed-p package)
-    (package-refresh-contents)
     (package-install package))
   (require package))
 
