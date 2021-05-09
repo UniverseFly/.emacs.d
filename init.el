@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(counsel yasnippet swift-mode lsp-ui lsp-treemacs lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
+   '(lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -58,10 +58,13 @@
 (require-package 'swift-mode)
 (add-hook 'swift-mode-hook #'lsp-deferred)
 
+;; tree-based file explorer
+(require-package 'treemacs)
+(setq-default treemacs-width 25)
+
 (require-package 'lsp-treemacs)
 ;; sync treemacs project with lsp workspace
 (lsp-treemacs-sync-mode 1)
-(setq-default treemacs-width 25)
 
 ;; auto-completion in code
 (require-package 'company)
