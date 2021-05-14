@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
+   '(sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -99,6 +99,20 @@
 
 ;; lsp integration with ivy; enables finding some var/funcs in an lsp workspace
 (require-package 'lsp-ivy)
+
+;; rust-mode support.
+;; lsp-rust client is provided by lsp-mode by default.
+;; rust language server rls is installed via rustup
+(require-package 'rust-mode)
+(add-hook 'rust-mode-hook #'lsp-deferred)
+
+;; scala-mode support (a dependecy of lsp-metals)
+(require-package 'scala-mode)
+;; scala build tool
+(require-package 'sbt-mode)
+;; emacs client to scala's language server: metals; server installed via lsp-server-install
+(require-package 'lsp-metals)
+(add-hook 'scala-mode-hook #'lsp-deferred)
 
 ;;; below are packages I currently have few knowledge of
 
