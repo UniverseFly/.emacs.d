@@ -37,6 +37,7 @@
 ;; set the font for graphical emacs
 (set-face-attribute 'default nil :height 230)
 (set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)
+(setq-default line-spacing 5)
 ;;(add-to-list 'default-frame-alist '(font . "SF Mono 23"))
 ;; do not display the ugly top tool bar
 (tool-bar-mode -1)
