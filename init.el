@@ -3,14 +3,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-export-backends '(ascii html icalendar latex md odt))
  '(package-selected-packages
-   '(sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
+   '(sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+)
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -31,7 +33,15 @@
 ;; a custom theme provided by emacs by default
 (load-theme 'wombat t)
 ;; disable the menu bar on the top of a window
-(menu-bar-mode -1)
+;; (menu-bar-mode -1)
+;; set the font for graphical emacs
+(set-face-attribute 'default nil :height 230)
+(set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)
+;;(add-to-list 'default-frame-alist '(font . "SF Mono 23"))
+;; do not display the ugly top tool bar
+(tool-bar-mode -1)
+;; do not show scroll bar
+(scroll-bar-mode -1)
 ;; only spaces when pressing tabs
 (setq-default indent-tabs-mode nil)
 
@@ -63,7 +73,8 @@
 
 ;; tree-based file explorer
 (require-package 'treemacs)
-(setq-default treemacs-width 25)
+(setq-default treemacs-width 22)
+(setq-default treemacs--width-is-locked nil)
 
 (require-package 'lsp-treemacs)
 ;; sync treemacs project with lsp workspace
