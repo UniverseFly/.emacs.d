@@ -59,6 +59,7 @@
 (setq-default lsp-pyright-python-executable-cmd "python3")
 ;; lsp-mode provides a default client for pyls server, and this cmd disables it
 ;; so pyright is of a greater priority to be loaded
+(defvar lsp-disabled-clients)
 (add-to-list 'lsp-disabled-clients 'pyls)
 (add-hook 'python-mode-hook #'lsp-deferred)
 
@@ -94,6 +95,7 @@
 ;; based on ivy, a package for emacs completion
 (require-package 'counsel)
 ;; prevent double-tabs publishing commands
+(defvar ivy-minibuffer-map) ; a declaration to get rid of warnings
 (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
 ;; ivy is for global commands; can be considered a modification of emacs internal
 ;; counsel is a client which implements user-oriented commands based on ivy
