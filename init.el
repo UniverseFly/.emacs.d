@@ -5,13 +5,13 @@
  ;; If there is more than one, they won't work right.
  '(org-export-backends '(ascii html icalendar latex md odt))
  '(package-selected-packages
-   '(sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
+   '(cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
+ )
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -34,7 +34,7 @@
 ;; disable the menu bar on the top of a window
 ;; (menu-bar-mode -1)
 ;; set the font for graphical emacs
-(set-face-attribute 'default nil :height 230)
+(set-face-attribute 'default nil :height 250)
 (set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)
 (setq-default line-spacing 5)
 ;;(add-to-list 'default-frame-alist '(font . "SF Mono 23"))
@@ -128,6 +128,8 @@
 (add-hook 'scala-mode-hook #'lsp-deferred)
 
 ;;; below are packages I currently have few knowledge of
+;; cmake-mode
+(require-package 'cmake-mode)
 
 ;; to display code analysis results by lsp
 (require-package 'lsp-ui)
