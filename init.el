@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(org-export-backends '(ascii html icalendar latex md odt))
  '(package-selected-packages
-   '(cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
+   '(multiple-cursors cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -136,3 +136,9 @@
 
 ;; code analysis tool
 (require-package 'flycheck)
+
+;; DAP: a sister protocol of LSP
+(require-package 'dap-mode)
+
+;; multiple cursors
+(require-package 'multiple-cursors)
