@@ -56,6 +56,7 @@
 ;; a python lsp client of emacs for pyright python server
 (require-package 'lsp-pyright)
 (setq-default lsp-pyright-python-executable-cmd "python3")
+(setq-default lsp-pyright-multi-root nil)
 ;; lsp-mode provides a default client for pyls server, and this cmd disables it
 ;; so pyright is of a greater priority to be loaded
 (defvar lsp-disabled-clients)
@@ -142,3 +143,7 @@
 
 ;; multiple cursors
 (require-package 'multiple-cursors)
+(global-unset-key (kbd "s-d"))
+(global-set-key (kbd "s-d") 'mc/mark-next-like-this)
+(global-unset-key (kbd "M-<down-mouse-1>"))
+(global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
