@@ -44,6 +44,7 @@
 (scroll-bar-mode -1)
 ;; only spaces when pressing tabs
 (setq-default indent-tabs-mode nil)
+(electric-pair-mode 1)
 
 ;; an emacs client for the language server protocol.
 ;; includes a number of clients for different PLs, but some of them should
