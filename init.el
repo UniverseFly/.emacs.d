@@ -3,9 +3,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-export-backends '(ascii html icalendar latex md odt))
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(package-selected-packages
-   '(company-coq proof-general lsp-haskell haskell-mode multiple-cursors cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
+   (quote
+    (evil scala-mode lsp-mode company-coq proof-general lsp-haskell haskell-mode multiple-cursors cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -159,3 +160,7 @@
 (require-package 'proof-general)
 (require-package 'company-coq)
 (add-hook 'coq-mode-hook #'company-coq-mode)
+
+;; Evil
+(require-package 'evil)
+(evil-mode 1)
