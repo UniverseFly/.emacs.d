@@ -6,7 +6,7 @@
  '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(package-selected-packages
    (quote
-    (evil scala-mode lsp-mode company-coq proof-general lsp-haskell haskell-mode multiple-cursors cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company))))
+    (magit evil scala-mode lsp-mode company-coq proof-general lsp-haskell haskell-mode multiple-cursors cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -164,3 +164,6 @@
 ;; Evil
 (require-package 'evil)
 (evil-mode 1)
+
+;; Magit
+(require-package 'magit)
