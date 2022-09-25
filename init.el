@@ -3,10 +3,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(markdown-command "pandoc -s --katex")
- '(org-export-backends '(ascii html icalendar latex md odt))
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(package-selected-packages
-   '(meow god-mode company-coq proof-general lsp-haskell haskell-mode multiple-cursors cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company)))
+   (quote
+    (magit evil scala-mode lsp-mode company-coq proof-general lsp-haskell haskell-mode multiple-cursors cmake-mode sbt-mode lsp-metals rust-mode lsp-treemacs treemacs counsel yasnippet swift-mode lsp-ui lsp-sourcekit lsp-pyright lsp-ivy flycheck company))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -161,13 +162,18 @@
 (require-package 'company-coq)
 (add-hook 'coq-mode-hook #'company-coq-mode)
 
-;; evil
-(require-package 'evil)
-(evil-mode 1)
-
+;; Agda
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
 
-;; Do not backup nor auto save
+;;
+;;Do not backup nor auto save
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+
+;; Evil
+(require-package 'evil)
+(evil-mode 1)
+
+;; Magit
+(require-package 'magit)
